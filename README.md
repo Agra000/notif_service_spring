@@ -47,7 +47,7 @@ The config file is **not** in the repo, so you need to make it yourself.
 
 | Line | What to put |
 |---|---|
-| `url` | Change `notif_db` at the end if your database has a different name. |
+| `url` | Change `notification_db` at the end if your database has a different name. |
 | `username` | Your PostgreSQL username (usually `postgres`). |
 | `password` | **Your PostgreSQL password.** |
 
@@ -79,7 +79,7 @@ You should see `rabbitmq` with status `Up`.
 
 ### Step 4 — Prepare the database
 
-Open pgAdmin or DBeaver, create a database called `notif_db`, then run the SQL inside folder that i gave to you.
+Open pgAdmin or DBeaver, create a database called `notification_db`, then run the SQL inside folder that i gave to you.
 
 ### Step 5 — Clean and build (optional, like `dotnet clean` / `dotnet build`)
 
@@ -207,7 +207,7 @@ Expected: **Ready** goes back to `0`, and a new row appears in `notif_logs`.
 |---|---|
 | Red imports / `Cannot resolve symbol` | Open `pom.xml` and click the small **"m"** reload icon at the top-right. |
 | `Could not resolve placeholder 'app.rabbit...'` | `application.yml` is missing, in the wrong folder, or a key is misspelled. It must be at `src/main/resources/application.yml`. |
-| `Unable to determine Dialect without JDBC metadata` | Can't connect to PostgreSQL. Check the database name, username and password, and make sure `notif_db` exists. |
+| `Unable to determine Dialect without JDBC metadata` | Can't connect to PostgreSQL. Check the database name, username and password, and make sure `notification_db` exists. |
 | `Connection refused` | Docker Desktop or the `rabbitmq` container is not running. Run `docker compose up -d` in the user management project. |
 | `Failed to check/redeclare auto-delete queue(s)` | RabbitMQ was not ready yet. Wait a few seconds after starting Docker, then press **▶** again. |
 | Consumers = 0 in RabbitMQ | This service is not running, or it stopped because of an error. Check the console. |
